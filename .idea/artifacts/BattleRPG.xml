@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="BattleRPG">
+    <output-path>$PROJECT_DIR$/out/artifacts/BattleRPG</output-path>
+    <root id="archive" name="BattleRPG.zip">
+      <element id="directory" name="bin">
+        <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/battlerpg_developer_module/bin/battlerpg.bat" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="artifact" artifact-name="battlerpg-developer-module" />
+        <element id="artifact" artifact-name="battlerpg-main-module" />
+        <element id="artifact" artifact-name="EasyClasses" />
+      </element>
+      <element id="directory" name="plugins">
+        <element id="artifact" artifact-name="battlerpg-programs-module" />
+      </element>
+    </root>
+  </artifact>
+</component>

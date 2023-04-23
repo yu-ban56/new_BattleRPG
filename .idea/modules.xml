@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/IdeaProjects/EasyClasses/EasyClasses.iml" filepath="$USER_HOME$/IdeaProjects/EasyClasses/EasyClasses.iml" />
+      <module fileurl="file://$PROJECT_DIR$/battlerpg.iml" filepath="$PROJECT_DIR$/battlerpg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/battlerpg.developer/battlerpg.developer.iml" filepath="$PROJECT_DIR$/battlerpg.developer/battlerpg.developer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/battlerpg.developer.exampleplugin/battlerpg.developer.exampleplugin.iml" filepath="$PROJECT_DIR$/battlerpg.developer.exampleplugin/battlerpg.developer.exampleplugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/battlerpg.main/battlerpg.main.iml" filepath="$PROJECT_DIR$/battlerpg.main/battlerpg.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/battlerpg.programs/battlerpg.programs.iml" filepath="$PROJECT_DIR$/battlerpg.programs/battlerpg.programs.iml" />
+    </modules>
+  </component>
+</project>

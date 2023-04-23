@@ -1,0 +1,14 @@
+battlerpg.dataMemory
+battlerpg.Int
+battlerpg.main
+battlerpg.resources.characters
+battlerpg.resources.Field
+battlerpg.resources.materials
+battlerpg.resources.monsters
+battlerpg.resources.weapons.knife
+battlerpg.save.read
+battlerpg.save.write
+battlerpg.sdk
+battlerpg.sdk.date
+battlerpg.sdk.mods.main
+battlerpg.sdk.plugins.main

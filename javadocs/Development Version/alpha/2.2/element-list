@@ -1,0 +1,10 @@
+dataMemory
+main
+programs.Int
+resources.characters
+resources.Field
+resources.materials
+resources.monsters
+resources.weapons.knife
+save.read
+save.write

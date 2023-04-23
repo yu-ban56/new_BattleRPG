@@ -1,0 +1,1 @@
+moduleSearchIndex = [{"l":"battlerpg.developer"},{"l":"battlerpg.developer.exampleplugin"},{"l":"battlerpg.main"},{"l":"battlerpg.programs"},{"l":"EasyClasses"},{"l":"test"}];updateSearchResults();

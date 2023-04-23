@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="battlerpg-all-edition">
+    <output-path>$PROJECT_DIR$/out/artifacts/battlerpg_all_edition</output-path>
+    <root id="archive" name="battlerpg-all-edition.jar">
+      <element id="module-output" name="battlerpg.programs" />
+      <element id="module-output" name="battlerpg.main" />
+      <element id="module-output" name="EasyClasses" />
+      <element id="module-output" name="battlerpg.developer" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/battlerpg.developer/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

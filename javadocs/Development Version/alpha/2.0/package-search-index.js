@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"dataMemory"},{"l":"main"},{"l":"programs.Int"},{"l":"resources.characters"},{"l":"resources.Field"},{"l":"resources.materials"},{"l":"resources.monsters"},{"l":"resources.weapons.knife"},{"l":"save.read"},{"l":"save.write"},{"l":"すべてのパッケージ","u":"allpackages-index.html"}];updateSearchResults();
