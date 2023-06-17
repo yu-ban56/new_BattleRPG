@@ -1,4 +1,4 @@
 @echo off
 cd ..
-java -Xmx2048M -Xms2048M -classpath "./plugins/*.jar;./lib/*.jar;./bin" battlerpg.main.Main
-
+javaw -Xmx2048M -Xms2048M -classpath ./lib/battlerpg-main-module.jar;./bin -jar ./lib/battlerpg-main-module.jar
+cd bin

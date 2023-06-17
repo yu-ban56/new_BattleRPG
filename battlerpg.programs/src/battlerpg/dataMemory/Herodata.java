@@ -19,7 +19,7 @@ public class Herodata {
         } else {
             return false;
         }
-        return this.hp == this.Logic.hp && this.exp == this.Logic.exp && this.Level == this.Logic.lvl;
+        return this.hp == this.Logic.getHp() && this.exp == this.Logic.lvl && this.Level == this.Logic.lvl;
     }
 
     public int hashCode() {

@@ -1,0 +1,6 @@
+<mod-loading>
+    <loadmod>
+        <mod modClass="com.example.examplemod.ExampleMod"/>
+        <mod modClass="com.example.examplemod.ExampleModSub"/>
+    </loadmod>
+</mod-loading>

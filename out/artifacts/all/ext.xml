@@ -1,0 +1,4 @@
+<extend>
+	<load type="mod" mainClass="com.example.examplemod.ExampleMod"/>
+	<load type="mod" mainClass="com.example.examplemod.ExampleModSub"/>
+</extend>

@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/IdeaProjects/EasyClasses/EasyClasses.iml" filepath="$USER_HOME$/IdeaProjects/EasyClasses/EasyClasses.iml" />
-      <module fileurl="file://$PROJECT_DIR$/battlerpg.iml" filepath="$PROJECT_DIR$/battlerpg.iml" />
-      <module fileurl="file://$PROJECT_DIR$/battlerpg.developer/battlerpg.developer.iml" filepath="$PROJECT_DIR$/battlerpg.developer/battlerpg.developer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/battlerpg.developer.examplemod/ExampleMod/battlerpg.developer.examplemod.iml" filepath="$PROJECT_DIR$/battlerpg.developer.examplemod/ExampleMod/battlerpg.developer.examplemod.iml" />
       <module fileurl="file://$PROJECT_DIR$/battlerpg.developer.exampleplugin/battlerpg.developer.exampleplugin.iml" filepath="$PROJECT_DIR$/battlerpg.developer.exampleplugin/battlerpg.developer.exampleplugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/battlerpg.main/battlerpg.main.iml" filepath="$PROJECT_DIR$/battlerpg.main/battlerpg.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BattleRPG English Plugin/battlerpg.plugin.english.iml" filepath="$PROJECT_DIR$/BattleRPG English Plugin/battlerpg.plugin.english.iml" />
+      <module fileurl="file://$PROJECT_DIR$/battlerpg.main/BattleRPG Logging Plugin/battlerpg.plugin.logging.iml" filepath="$PROJECT_DIR$/battlerpg.main/BattleRPG Logging Plugin/battlerpg.plugin.logging.iml" />
       <module fileurl="file://$PROJECT_DIR$/battlerpg.programs/battlerpg.programs.iml" filepath="$PROJECT_DIR$/battlerpg.programs/battlerpg.programs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/battlerpg.server/battlerpg.server.iml" filepath="$PROJECT_DIR$/battlerpg.server/battlerpg.server.iml" />
     </modules>
   </component>
 </project>

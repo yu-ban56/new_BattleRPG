@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="all">
+    <output-path>$PROJECT_DIR$/out/artifacts/all</output-path>
+    <root id="root">
+      <element id="module-output" name="battlerpg.developer.examplemod" />
+      <element id="module-output" name="battlerpg.developer.exampleplugin" />
+      <element id="module-output" name="battlerpg.plugin.english" />
+      <element id="module-output" name="battlerpg.plugin.logging" />
+      <element id="library" level="project" name="EasyClasses-1.1.5" />
+      <element id="library" level="project" name="annotations-20.1.0" />
+      <element id="module-output" name="battlerpg.main" />
+      <element id="module-output" name="battlerpg.programs" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ExampleMod">
+    <output-path>$PROJECT_DIR$/out/artifacts/ExampleMod</output-path>
+    <root id="archive" name="battlerpg.developer.examplemod.jar">
+      <element id="module-output" name="battlerpg.developer.examplemod" />
+      <element id="file-copy" path="$PROJECT_DIR$/battlerpg.developer.examplemod/ExampleMod/mods.xml" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,18 @@
+------------ BattleRPG Crash Report ------------
+              Message: modloader:java.lang.ClassNotFoundException: com.example.examplemod.ExampleModSu
+              stacktrace: 
+              battlerpgloader.mod.ModLoadingCrash: java.lang.ClassNotFoundException: com.example.examplemod.ExampleModSu
+	at battlerpgloader.mod.ModLoader.modListLoad(ModLoader.java:49)
+	at battlerpgloader.mod.ModLoader.init(ModLoader.java:67)
+	at battlerpgloader.plugin.Loader.loadPlugin(Loader.java:17)
+	at battlerpg.main.Main.play(Main.java:49)
+	at battlerpg.main.Main.main(Main.java:182)
+Caused by: java.lang.ClassNotFoundException: com.example.examplemod.ExampleModSu
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:375)
+	at battlerpgloader.mod.ModLoader.modLoad(ModLoader.java:27)
+	at battlerpgloader.mod.ModLoader.modListLoad(ModLoader.java:42)
+	... 4 more

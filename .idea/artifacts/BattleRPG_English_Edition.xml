@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="BattleRPG English Edition">
+    <output-path>$PROJECT_DIR$/out/artifacts/BattleRPG_English_Edition</output-path>
+    <root id="archive" name="BattleRPG English Edition.zip">
+      <element id="artifact" artifact-name="battlerpg-english-edition-all" />
+      <element id="file-copy" path="$PROJECT_DIR$/BattleRPG English Plugin/run.bat" />
+    </root>
+  </artifact>
+</component>

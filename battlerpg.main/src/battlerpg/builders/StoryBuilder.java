@@ -22,7 +22,7 @@ public class StoryBuilder implements AbstractBattleRPGBuilder{
     public void addElement(String str, Object o) {
         Object obj = element.get(element.size() - 1);
         if(obj instanceof LinkedHashMap) {
-            Map map = (LinkedHashMap<?, ?>)obj;
+            Map<String, Object> map = (LinkedHashMap<String, Object>)obj;
             map.put(str, o);
         }
     }

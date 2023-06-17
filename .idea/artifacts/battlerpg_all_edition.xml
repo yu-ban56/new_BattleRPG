@@ -4,11 +4,12 @@
     <root id="archive" name="battlerpg-all-edition.jar">
       <element id="module-output" name="battlerpg.programs" />
       <element id="module-output" name="battlerpg.main" />
-      <element id="module-output" name="EasyClasses" />
-      <element id="module-output" name="battlerpg.developer" />
+      <element id="file-copy" path="$PROJECT_DIR$/System.properties" />
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/battlerpg.developer/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
       </element>
+      <element id="library" level="project" name="EasyClasses-1.1.5" />
+      <element id="library" level="project" name="annotations-20.1.0" />
     </root>
   </artifact>
 </component>

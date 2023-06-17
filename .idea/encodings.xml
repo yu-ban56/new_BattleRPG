@@ -2,10 +2,13 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$USER_HOME$/IdeaProjects/EasyClasses/EasyClasses/io/xml/XMLOutputStream.java" charset="windows-31j" />
+    <file url="file://$USER_HOME$/git/battlerpg/battlerpg/src/resources/characters/Hero.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/battlerpg.developer.exampleplugin/src/module-info.java" charset="windows-31j" />
-    <file url="file://$PROJECT_DIR$/battlerpg.developer/src/battlerpg/api/net/CharacterNetStream.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.developer/src/module-info.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/battlerpg.main/BattleRPG Logging Plugin/src/module-info.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/a.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/api/net/CharacterNetStream.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/gameplay/GamePlayMain.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/main/Main.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/main/MemoryUsage.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/main/package-info.java" charset="windows-31j" />
@@ -13,8 +16,8 @@
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/package-info.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/resources/characters/Hero.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/resources/monsters/WelkWolf.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpgloader/mod/ModLoader.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/module-info.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.programs/src/battlerpg/dataMemory/Herodata.java" charset="windows-31j" />
-    <file url="file://$USER_HOME$/git/battlerpg/battlerpg/src/resources/characters/Hero.java" charset="UTF-8" />
   </component>
 </project>

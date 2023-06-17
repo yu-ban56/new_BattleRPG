@@ -10,12 +10,12 @@ import static battlerpg.main.Main.Filename;
 public class Herowrite implements CharacterWriter{
     public void write(Characterr c) throws Exception{
         if(!(c instanceof Hero)) return;
-        Integer a = c.hp;
-        String hp = a.toString();
-        a = c.exp;
-        String exp = a.toString();
+        int a = ((Hero) c).getHp();
+        String hp = Integer.toString(a);
+        a = ((Hero) c).getLevel();
+        String exp = Integer.toString(a);
         a = c.lvl;
-        String lvl = a.toString();
+        String lvl = Integer.toString(a);
         FileWriter fw = new FileWriter("../../../../saves/" + Filename + "/Characters/Hero/" + c.getName() + ".properties");
         Properties p = new Properties();
         p.setProperty("HeroName", c.getName());

@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="battlerpg.plugin.english:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/battlerpg_plugin_english_jar</output-path>
+    <root id="archive" name="battlerpg-english.jar">
+      <element id="module-output" name="battlerpg.plugin.english" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/BattleRPG English Plugin/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

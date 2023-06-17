@@ -6,9 +6,9 @@
         <element id="file-copy" path="$PROJECT_DIR$/out/artifacts/battlerpg_developer_module/bin/battlerpg.bat" />
       </element>
       <element id="directory" name="lib">
-        <element id="artifact" artifact-name="battlerpg-developer-module" />
         <element id="artifact" artifact-name="battlerpg-main-module" />
-        <element id="artifact" artifact-name="EasyClasses" />
+        <element id="library" level="project" name="EasyClasses-1.1.5" />
+        <element id="library" level="project" name="annotations-20.1.0" />
       </element>
       <element id="directory" name="plugins">
         <element id="artifact" artifact-name="battlerpg-programs-module" />

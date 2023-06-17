@@ -19,9 +19,6 @@ public class SuperHero extends Hero{
     public void setHero(Hero data) {
         super.setHero(data);
     }
-    public void setHero(int hp, int exp, int lvl) {
-        super.setHero(hp, exp, lvl);
-    }
     public SuperHero clone() {
         Hero h = super.clone();
         SuperHero result = (SuperHero) h;

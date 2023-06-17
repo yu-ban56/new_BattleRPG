@@ -9,6 +9,7 @@ public class FieldReader implements reader{
         gs = null;
 
     }
+
     public int[][] loadField(Field field) {
         return field.getdimention();
     }

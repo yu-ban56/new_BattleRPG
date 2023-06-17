@@ -1,5 +1,6 @@
 package battlerpg.resources.monsters;
 
+import battlerpg.resources.materials.Characterr;
 import battlerpg.resources.materials.Monster;
 
 public class WelkWolf extends Monster{
@@ -12,7 +13,9 @@ public class WelkWolf extends Monster{
         this.hp = 40;
     }
 
-    public void run() {
 
+    @Override
+    protected void doAttack(Characterr c) {
+        c.setHp(c.getHp() - 8);
     }
 }

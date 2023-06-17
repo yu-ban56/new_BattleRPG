@@ -2,10 +2,15 @@ package battlerpg.main;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
-import java.nio.file.*;
 import java.util.Properties;
+
+import battlerpg.api.util.language.*;
+import battlerpg.gameplay.GamePlayMain;
+import battlerpgloader.plugin.Loader;
+import battlerpgloader.plugin.PluginXMLLoader;
 
 @SuppressWarnings("all")
 public class Main {
@@ -16,48 +21,92 @@ public class Main {
     static JLabel label1;
     static JTextField textbox1;
     public static String Filename;
+    private static Language defaultLanguage;
+    private static String[] arguments;
 
-    public static void play() {
+    static{
+        defaultLanguage = new Language("ja-JP");
+        defaultLanguage.addTranslate(new Translate("battlerpg.main.frameTitle", "BattleRPG"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.main.version", "取得できません。"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.messageLogWindowName", "BattleRPG - メッセージログ"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.openShutdownoption", "シャットダウンオプションを開く"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.forDeveloper", "開発者用"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.singleplay", "シングルプレイ"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.systemLog.frameTitle", "BattleRPG - システムログ"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.menuBar.log", "ログ"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.menu.log.message", "メッセージ"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.menuBar.help", "ヘルプ"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.getSavedata", "どのセーブデータで遊びますか?"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.versionInfo", "バージョン情報"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.memoryView", "メモリ表示"));
+        defaultLanguage.addTranslate(new Translate("battlerpg.menu.log.sys", "システムログ"));
+    }
+
+    public static void play(String[] args) {
+        arguments = args;
+        frame1 = new JFrame(defaultLanguage.getTranslate("battlerpg.main.frameTitle"));
+        if(args.length == 1 && args[0].equals("-m")) {
+            Loader.loadPlugin("battlerpgloader.mod.ModLoader");
+        }
+        if(args.length == 2) {
+            if(args[0].equals("-p")) {
+                battlerpgloader.plugin.Loader.loadPlugin(args[1]);
+            }
+        }
+        if(args.length == 1 && args[0].equals("--load-plugin-XML")) {
+            PluginXMLLoader.load();
+        }
         Properties p = new Properties();
+        String version = defaultLanguage.getTranslate("battlerpg.main.version");
         try {
             FileReader fr = new FileReader("./System.properties");
             p.load(fr);
-        }catch(IOException e) {e.printStackTrace();}
-        messageframe = new JFrame("BattleRPG - メッセージログ");
+            version = p.getProperty("battlerpg.version");
+        }catch(IOException e) {
+            String exceptionMessege = e.getMessage();
+            JOptionPane.showMessageDialog(null, exceptionMessege, "BattleRPG - Error", 0);
+        }
+        messageframe = new JFrame(defaultLanguage.getTranslate("battlerpg.messageLogWindowName"));
         saveframe = new JDialog(frame1);
-        saveframe.setTitle("BattleRPG - ダイアログ");
-        String version = new String("alpha 2.2");
-        frame1 = new JFrame("BattleRPG");
+        saveframe.setTitle(defaultLanguage.getTranslate("battlerpg.systemLog.frameTitle"));
         Container c = new Container();
-        ImageIcon icon = new ImageIcon("./mainicon.png");
+        ImageIcon icon = new ImageIcon("./battlerpg.main/META-INF/logo.png");
         frame1.setIconImage(icon.getImage());
         saveframe.setIconImage(icon.getImage());
         messageframe.setIconImage(icon.getImage());
         saveframe.setIconImage(icon.getImage());
-        label1 = new JLabel( "どのセーブデータ遊びますか?");
+        label1 = new JLabel(defaultLanguage.getTranslate("battlerpg.getSavedata"));
         textbox1 = new JTextField(10);
         JButton button1 = new JButton("set");
         JButton button2 = new JButton("newGame");
-        JButton button5 = new JButton("シャットダウンオプションを開く");
+        JButton button5 = new JButton(defaultLanguage.getTranslate("battlerpg.openShutdownoption"));
         saveframe.setSize(480, 220);
         MenuBar menuBar = new MenuBar();
-        Menu menu1 = new Menu("ログ");
-        Menu menu2 = new Menu("ヘルプ");
-        MenuItem menu2_1 = new MenuItem("バージョン情報");
+        Menu menu1 = new Menu(defaultLanguage.getTranslate("battlerpg.menuBar.log"));
+        Menu menu2 = new Menu(defaultLanguage.getTranslate("battlerpg.menuBar.help"));
+        JLabel ver = new JLabel(version);
+        MenuItem menu2_1 = new MenuItem(defaultLanguage.getTranslate("battlerpg.versionInfo"));
         menu2_1.addActionListener(e->{
-            JFrame frame = new JFrame("BattleRPG - バージョン情報");
-            JLabel label = new JLabel("      BattleRPG " + version);
+            JLabel label = new JLabel("      BattleRPG " + ver.getText());
+            JDialog frame = new JDialog(frame1);
+            frame.setLayout(new FlowLayout());
+            frame.setTitle("BattleRPG - " + defaultLanguage.getTranslate("battlerpg.versionInfo"));
+            if(ver.getText().equals(defaultLanguage.getTranslate("battlerpg.main.version"))) {
+                label.setText(ver.getText());
+            }else {
+                label.setText("      BattleRPG " + ver.getText());
+            }
             frame.getContentPane().add(label);
-            frame.setSize(480, 220);
+            frame.setSize(300, 100);
             frame.setVisible(true);
         });
-        Menu menu3 = new Menu("開発者用");
-        MenuItem menu3_1 = new MenuItem("メモリ表示");
+        Menu menu3 = new Menu(defaultLanguage.getTranslate("battlerpg.forDeveloper"));
+        MenuItem menu3_1 = new MenuItem(defaultLanguage.getTranslate("battlerpg.memoryView"));
         menu3_1.addActionListener(ae->{MemoryUsage.run();});
         menu3.add(menu3_1);
         menuBar.add(menu3);
-        MenuItem menuitem = new MenuItem("メッセージ");
-        MenuItem item_1 = new MenuItem("ダイアログ");
+        MenuItem menuitem = new MenuItem(defaultLanguage.getTranslate("battlerpg.menu.log.message"));
+        MenuItem item_1 = new MenuItem(defaultLanguage.getTranslate("battlerpg.menu.log.sys"));
         menu1.add(menuitem);
         menu2.add(menu2_1);
         menu1.add(item_1);
@@ -67,18 +116,21 @@ public class Main {
         menuBar.add(menu2);
         messageframe.setSize(500,300);
         button1.addActionListener(e->{
-            
+            battlerpg.save.Loader.loadAll(textbox1.getText());
         });
-        button5.addActionListener(e->{shutdownoption();});
-        button2.addActionListener(ae->{
+        button5.addActionListener(e->shutdownoption());
+        button2.addActionListener(e->{
             try {
-                FileWriter fw = new FileWriter("./saves/" + textbox1.getText() + "/savedata.config");
+                FileWriter fw = new FileWriter("./saves/" + textbox1.getText() + "/savedata.cfg");
                 fw.write("dataname = " + textbox1.getText());
-                fw.write("path = " + "%appdata%/.gaming/battlerpg/saves/" + textbox1.getText());
+                fw.write("\npath = " + "saves/" + textbox1.getText());
                 fw.close();
-                Path path = Paths.get("../../saves/" + textbox1.getText());
-                Files.createDirectory(path);
-            }catch(IOException e){e.printStackTrace();System.out.println(e.getMessage());return;}});
+                JFrame frame = new JFrame("BattleRPG - " + defaultLanguage.getTranslate("battlerpg.singleplay") + ": " + textbox1.getText());
+                frame.setIconImage(icon.getImage());
+                frame.setLayout(new FlowLayout());
+                frame.setSize(600, 200);
+                GamePlayMain.launch(frame);
+            }catch(IOException ex){ex.printStackTrace();System.out.println(ex.getMessage());return;}});
         c.add(textbox1);
         c.add(label1);
         c.add(button1);
@@ -86,10 +138,16 @@ public class Main {
         c.add(button5);
         c.setLayout(new FlowLayout());
         frame1.setContentPane(c);
-        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame1.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                if (args.length == 2) {
+                    battlerpgloader.plugin.Loader.destroyPlugin();
+                }
+                System.exit(0);
+            }
+        });
         frame1.setSize(1000, 600);
         frame1.setMenuBar(menuBar);
-        frame1.setVisible(true);
     }
     public static void shutdownoption() {
         shutdownframe = new JDialog(frame1);
@@ -112,17 +170,17 @@ public class Main {
         option_shutdown.add(menu);
         shutdownframe.setJMenuBar(option_shutdown);
         shutdownframe.setLayout(new FlowLayout());
-        button.addActionListener((ActionEvent ae)->{
-            if(label.getText().equals("Shutdown")){exit();}
+        button.addActionListener(e->{
+            if(label.getText().equals("Shutdown")){if(arguments.length == 2) {Loader.destroyPlugin();}exit();}
             if(label.getText().equals("Reboot")){reboot();}
         });
         shutdownframe.setSize(400, 100);
         shutdownframe.setVisible(true);
     }
 
-
     public static void main(String[] args) {
-        play();
+        play(args);
+        frame1.setVisible(true);
     }
     public static void addMessage(String text) {
         JLabel label = new JLabel(text);
@@ -140,7 +198,7 @@ public class Main {
         messageframe = null;
         saveframe = null;
         shutdownframe = null;
-        play();
+        play(new String[0]);
     }
     public static void addDialog(String text) {
         JLabel label = new JLabel(text);
@@ -151,5 +209,21 @@ public class Main {
         messageframe.setVisible(false);
         saveframe.setVisible(false);
         shutdownframe.setVisible(false);
+    }
+
+    public static Language getDefaultLanguage() {
+        return defaultLanguage;
+    }
+
+    public static void addMainComponent(Component c) {
+        frame1.add(c);
+    }
+
+    public static void removeMainComponent(Component c) {
+        frame1.remove(c);
+    }
+
+    public static JFrame getMainFrame() {
+        return frame1;
     }
 }

@@ -7,6 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="EasyClasses" />
+    <orderEntry type="library" name="annotations-20.1.0" level="project" />
+    <orderEntry type="library" name="EasyClasses-1.1.5" level="project" />
   </component>
 </module>

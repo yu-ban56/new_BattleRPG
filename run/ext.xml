@@ -1,0 +1,6 @@
+<extend>
+    <load type="plugin" mainClass="battlerpg.addon.english.EnglishPlugin"/>
+    <load type="plugin" mainClass="battlerpgloader.mod.ModLoader"/>
+    <load type="mod" mainClass="com.example.examplemod.ExampleMod"/>
+    <load type="mod" mainClass="com.example.examplemod.ExampleModSub"/>
+</extend>
