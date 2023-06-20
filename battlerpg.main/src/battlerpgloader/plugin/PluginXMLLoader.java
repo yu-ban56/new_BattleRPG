@@ -14,7 +14,7 @@ public class PluginXMLLoader {
             for (int i = 0; i < node.getLength(); i++) {
                 if(node.item(i) instanceof Element child) {
                     if(child.getTagName().equals("load") && child.getAttribute("type").equals("plugin")) {
-                        Loader.loadPlugin(child.getAttribute("mainClass"));
+                        PluginLoader.loadPlugin(child.getAttribute("mainClass"));
                     }
                 }
             }

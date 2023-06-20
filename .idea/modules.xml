@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/battlerpg.developer.exampleloader/battlerpg.developer.exampleloader.iml" filepath="$PROJECT_DIR$/battlerpg.developer.exampleloader/battlerpg.developer.exampleloader.iml" />
       <module fileurl="file://$PROJECT_DIR$/battlerpg.developer.examplemod/ExampleMod/battlerpg.developer.examplemod.iml" filepath="$PROJECT_DIR$/battlerpg.developer.examplemod/ExampleMod/battlerpg.developer.examplemod.iml" />
       <module fileurl="file://$PROJECT_DIR$/battlerpg.developer.exampleplugin/battlerpg.developer.exampleplugin.iml" filepath="$PROJECT_DIR$/battlerpg.developer.exampleplugin/battlerpg.developer.exampleplugin.iml" />
       <module fileurl="file://$PROJECT_DIR$/battlerpg.main/battlerpg.main.iml" filepath="$PROJECT_DIR$/battlerpg.main/battlerpg.main.iml" />

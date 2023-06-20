@@ -8,16 +8,16 @@ import battlerpgloader.RegisterObject;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
-public class Loader {
+public class PluginLoader {
 
     private static final ArrayList<RegisterObject<Plugin>> registerObject = new ArrayList<>();
     public static void loadPlugin(String pluginClass) {
         try {
             RegisterObject<Plugin> registerObject = Register.registerPlugin((Plugin) ClassLoader.getSystemClassLoader().loadClass(pluginClass).getConstructor().newInstance());
             registerObject.getRegisterObject().init();
-            Loader.registerObject.add(registerObject);
+            PluginLoader.registerObject.add(registerObject);
             if(registerObject.getRegisterObject().getPluginType() == PluginType.REAL_TIME_PROGRAM) {
-                Thread run = new Thread(()->registerObject.getRegisterObject().runThread(), "Plugin Worker " + Loader.registerObject.size());
+                Thread run = new Thread(()->registerObject.getRegisterObject().runThread(), "Plugin Worker " + PluginLoader.registerObject.size());
                 run.start();
             }
         } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException |
@@ -25,8 +25,7 @@ public class Loader {
             throw new RuntimeException(e);
         }
     }
-
     public static void destroyPlugin() {
-        registerObject.parallelStream().forEach(a -> a.getRegisterObject().destroy());
+        registerObject.forEach(a -> a.getRegisterObject().destroy());
     }
 }

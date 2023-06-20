@@ -9,7 +9,7 @@ import java.util.Properties;
 
 import battlerpg.api.util.language.*;
 import battlerpg.gameplay.GamePlayMain;
-import battlerpgloader.plugin.Loader;
+import battlerpgloader.plugin.PluginLoader;
 import battlerpgloader.plugin.PluginXMLLoader;
 
 @SuppressWarnings("all")
@@ -24,8 +24,8 @@ public class Main {
     private static Language defaultLanguage;
     private static String[] arguments;
 
-    static{
-        defaultLanguage = new Language("ja-JP");
+    static {
+        defaultLanguage = new Language("default");
         defaultLanguage.addTranslate(new Translate("battlerpg.main.frameTitle", "BattleRPG"));
         defaultLanguage.addTranslate(new Translate("battlerpg.main.version", "取得できません。"));
         defaultLanguage.addTranslate(new Translate("battlerpg.messageLogWindowName", "BattleRPG - メッセージログ"));
@@ -46,11 +46,11 @@ public class Main {
         arguments = args;
         frame1 = new JFrame(defaultLanguage.getTranslate("battlerpg.main.frameTitle"));
         if(args.length == 1 && args[0].equals("-m")) {
-            Loader.loadPlugin("battlerpgloader.mod.ModLoader");
+            PluginLoader.loadPlugin("battlerpgloader.mod.ModLoader");
         }
         if(args.length == 2) {
             if(args[0].equals("-p")) {
-                battlerpgloader.plugin.Loader.loadPlugin(args[1]);
+                PluginLoader.loadPlugin(args[1]);
             }
         }
         if(args.length == 1 && args[0].equals("--load-plugin-XML")) {
@@ -141,7 +141,7 @@ public class Main {
         frame1.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 if (args.length == 2) {
-                    battlerpgloader.plugin.Loader.destroyPlugin();
+                    PluginLoader.destroyPlugin();
                 }
                 System.exit(0);
             }
@@ -171,7 +171,8 @@ public class Main {
         shutdownframe.setJMenuBar(option_shutdown);
         shutdownframe.setLayout(new FlowLayout());
         button.addActionListener(e->{
-            if(label.getText().equals("Shutdown")){if(arguments.length == 2) {Loader.destroyPlugin();}exit();}
+            if(label.getText().equals("Shutdown")){if(arguments.length == 2) {
+                PluginLoader.destroyPlugin();}exit();}
             if(label.getText().equals("Reboot")){reboot();}
         });
         shutdownframe.setSize(400, 100);
