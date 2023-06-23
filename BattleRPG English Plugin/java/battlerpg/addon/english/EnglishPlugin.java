@@ -4,7 +4,7 @@ import battlerpg.api.plugin.PluginType;
 import battlerpg.sdk.plugins.*;
 
 public class EnglishPlugin extends Plugin{
-    public void init() {
+    public void init(String... args) {
         System.out.print("BattleRPG English Translate Plugin beta 1.0\n\nStarting Translate\n");
         Translator.main();
     }

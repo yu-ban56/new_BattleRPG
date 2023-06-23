@@ -49,22 +49,17 @@ public class ModLoader extends Plugin {
             throw new ModLoadingCrash(e);
         }
     }
-    public static Element getChildrenElement(Element e, String name) {
-        NodeList node = e.getChildNodes();
-        for (int i = 0; i < node.getLength(); i++) {
-            if(node.item(i) instanceof Element child) {
-                if(child.getTagName().equals(name)) {
-                    return child;
-                }
-            }
-        }
-        return null;
-    }
 
     @Override
-    public void init() {
+    public void init(String... args) {
         Main.getDefaultLanguage().setTranslate(new Translate("battlerpg.modList.dialogTitle", "BattleRPG Modローダ - mod リスト"));
-        modListLoad();
+        if(args.length == 1) {
+            try {
+                modLoad(args[0]);
+            } catch (Exception e) {
+                throw new ModLoadingCrash(e);
+            }
+        }else modListLoad();
         outModList();
     }
 

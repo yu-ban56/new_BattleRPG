@@ -9,6 +9,8 @@ import java.util.Properties;
 
 import battlerpg.api.util.language.*;
 import battlerpg.gameplay.GamePlayMain;
+import battlerpg.sdk.btcl.BTCLInterpreter;
+import battlerpg.sdk.btcl.Compiler;
 import battlerpgloader.plugin.PluginLoader;
 import battlerpgloader.plugin.PluginXMLLoader;
 
@@ -41,17 +43,33 @@ public class Main {
         defaultLanguage.addTranslate(new Translate("battlerpg.memoryView", "メモリ表示"));
         defaultLanguage.addTranslate(new Translate("battlerpg.menu.log.sys", "システムログ"));
     }
-
     public static void play(String[] args) {
         arguments = args;
         frame1 = new JFrame(defaultLanguage.getTranslate("battlerpg.main.frameTitle"));
+        if(args.length == 2 && args[0].equals("-c")) {
+            Compiler.compile(args[1]);
+            System.exit(0);
+        }
+        if(args.length == 2 && args[0].equals("-run")) {
+            BTCLInterpreter.run(args[1]);
+        }
         if(args.length == 1 && args[0].equals("-m")) {
             PluginLoader.loadPlugin("battlerpgloader.mod.ModLoader");
         }
-        if(args.length == 2) {
+        if(args.length == 2 && args[0].equals("-m")) {
+            PluginLoader.loadPlugin("battlerpgloader.mod.ModLoader", args[1]);
+        }
+        if(args.length >= 2) {
             if(args[0].equals("-p")) {
-                PluginLoader.loadPlugin(args[1]);
+                String[] argv = new String[args.length - 2];
+                for (int i = 0; i < argv.length; i++) {
+                    argv[i] = args[2 + i];
+                }
+                PluginLoader.loadPlugin(args[1], argv);
             }
+        }
+        if(args.length == 1 && args[0].equals("-p")) {
+            PluginXMLLoader.load();
         }
         if(args.length == 1 && args[0].equals("--load-plugin-XML")) {
             PluginXMLLoader.load();
@@ -116,21 +134,17 @@ public class Main {
         menuBar.add(menu2);
         messageframe.setSize(500,300);
         button1.addActionListener(e->{
-            battlerpg.save.Loader.loadAll(textbox1.getText());
+            System.out.println("Loading...");
+
         });
         button5.addActionListener(e->shutdownoption());
         button2.addActionListener(e->{
-            try {
-                FileWriter fw = new FileWriter("./saves/" + textbox1.getText() + "/savedata.cfg");
-                fw.write("dataname = " + textbox1.getText());
-                fw.write("\npath = " + "saves/" + textbox1.getText());
-                fw.close();
-                JFrame frame = new JFrame("BattleRPG - " + defaultLanguage.getTranslate("battlerpg.singleplay") + ": " + textbox1.getText());
-                frame.setIconImage(icon.getImage());
-                frame.setLayout(new FlowLayout());
-                frame.setSize(600, 200);
-                GamePlayMain.launch(frame);
-            }catch(IOException ex){ex.printStackTrace();System.out.println(ex.getMessage());return;}});
+            JFrame frame = new JFrame("BattleRPG - " + defaultLanguage.getTranslate("battlerpg.singleplay") + ": " + textbox1.getText());
+            frame.setIconImage(icon.getImage());
+            frame.setLayout(new FlowLayout());
+            frame.setSize(600, 200);
+            GamePlayMain.launch(frame, textbox1.getText());
+        });
         c.add(textbox1);
         c.add(label1);
         c.add(button1);

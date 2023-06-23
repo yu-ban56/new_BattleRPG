@@ -2,16 +2,18 @@ package battlerpg.gameplay;
 
 import battlerpg.main.Main;
 import battlerpg.resources.characters.Hero;
-import battlerpg.resources.materials.Monster;
 import battlerpg.resources.monsters.Goblin;
-import battlerpg.resources.monsters.WelkWolf;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import javax.swing.*;
 
 public class GamePlayMain {
-    public static void launch(JFrame gameplayFrame) {
+    public static void launch(JFrame gameplayFrame, String file) {
         Hero h = new Hero("Hero", 100, 2, 50, 50);
         Goblin m = new Goblin();
+        m.hp = 1000;
+        m.name = "test";
         final JButton battleButton = new JButton("Battle");
         gameplayFrame.add(battleButton);
         battleButton.addActionListener(e->{
@@ -28,7 +30,8 @@ public class GamePlayMain {
                     System.out.println("Loading...");
                     gameplayFrame.remove(0);
                     gameplayFrame.add(battleButton);
-                    gameplayFrame.repaint(1000, 1000, 15,100,200);
+                    gameplayFrame.setVisible(false);
+                    gameplayFrame.setVisible(true);
                 }
             });
             gameplayFrame.remove(battleButton);

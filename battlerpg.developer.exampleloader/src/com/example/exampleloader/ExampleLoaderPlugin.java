@@ -1,5 +1,6 @@
 package com.example.exampleloader;
 
+import battlerpg.api.loader.LoaderRegister;
 import battlerpg.sdk.plugins.Plugin;
 import javax.xml.parsers.*;
 
@@ -10,10 +11,13 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 
 public class ExampleLoaderPlugin extends Plugin {
+    static {
+        LoaderRegister.register("example", ExampleLoaderPlugin.class.getName());
+    }
 
     private static final ArrayList<ExampleSoftware> regObj = new ArrayList<>();
     @Override
-    public void init() {
+    public void init(String... args) {
         loadSoftware();
     }
 

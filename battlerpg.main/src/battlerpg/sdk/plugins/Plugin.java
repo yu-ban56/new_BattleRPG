@@ -9,7 +9,7 @@ public abstract class Plugin implements Software{
 
     }
 
-    public abstract void init();
+    public abstract void init(String... args);
 
     public void destroy() {
 

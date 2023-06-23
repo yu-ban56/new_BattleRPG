@@ -12,7 +12,7 @@ public class LoggingPlugin extends Plugin {
 
     Logger log;
     @Override
-    public void init() {
+    public void init(String... args) {
         log = Logger.getInstance();
         log.info("Starting BattleRPG");
     }

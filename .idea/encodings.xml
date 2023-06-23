@@ -16,6 +16,9 @@
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/package-info.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/resources/characters/Hero.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/resources/monsters/WelkWolf.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/sdk/btcl/BTCLInterpreter.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/sdk/btcl/Compiler.java" charset="windows-31j" />
+    <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpg/sdk/btcl/Compiler.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/battlerpgloader/mod/ModLoader.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.main/src/module-info.java" charset="windows-31j" />
     <file url="file://$PROJECT_DIR$/battlerpg.programs/src/battlerpg/dataMemory/Herodata.java" charset="windows-31j" />

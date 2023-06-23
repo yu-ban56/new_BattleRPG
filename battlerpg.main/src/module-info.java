@@ -25,7 +25,11 @@ module battlerpg.main {
     exports battlerpgloader;
     exports battlerpgloader.plugin;
     exports battlerpgloader.mod;
+    exports battlerpg.api.loader;
     exports battlerpg.api;
+    exports battlerpg.sdk.btcl;
+    exports battlerpg.api.lang;
+    exports battlerpg.api.lang.btcl;
     requires java.desktop;
     requires java.xml;
     requires java.logging;

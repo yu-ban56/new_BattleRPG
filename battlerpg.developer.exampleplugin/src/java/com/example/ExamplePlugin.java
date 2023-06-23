@@ -5,9 +5,11 @@ import battlerpg.sdk.plugins.Plugin;
 
 @SuppressWarnings("all")
 public class ExamplePlugin extends Plugin {
-    public void init() {
-        System.out.println("Test Plugin Loaded");
+    static {
 
+    }
+    public void init(String... args) {
+        System.out.println("Test Plugin Loaded");
     }
 
     public void destroy() {
