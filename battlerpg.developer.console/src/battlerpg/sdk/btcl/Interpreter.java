@@ -10,8 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 
-
-public class BTCLInterpreter {
+public class Interpreter {
     private static final HashMap<String, Plugin> plugins = new HashMap<>();
     public static void compile(String btclFile) {
         try(BufferedReader in = new BufferedReader(new FileReader(btclFile))) {
@@ -21,7 +20,7 @@ public class BTCLInterpreter {
                 if(data.matches("load .*")) {
                     if(LoaderRegister.getRegister().containsKey(data.substring(5))) {
                         PluginLoader.loadPlugin(LoaderRegister.get(data.split(" ")[1]), data.split(" ")[2]);
-                    } else if (data.split(" ")[1].equals("plugin")) {
+                    } else if(data.split(" ")[1].equals("plugin")) {
                         if (!plugins.containsKey(data.split(" ")[1])) PluginLoader.loadPlugin(data.split(" ")[2]); else
                             PluginLoader.loadPlugin(plugins.get(data.split(" ")[1]));
                     } else throw new BTCLSyntaxErrorException(btclFile + ":" + l + ":そのようなソフトウェアローダはありません。");
@@ -45,7 +44,7 @@ public class BTCLInterpreter {
                         public void destroy() {
                             if (finalData.split(" ")[3].equals("destroy:")) {
                                 try {
-                                    Method init = ClassLoader.getSystemClassLoader().loadClass(finalData.split(" ")[3].split("::")[0]).getMethod(finalData.split(" ")[3].split("::")[2]);
+                                    Method init = ClassLoader.getSystemClassLoader().loadClass(finalData.split(" ")[2].split("::")[0]).getMethod(finalData.split(" ")[3].split("::")[2]);
                                     init.invoke(this);
                                 } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException |
                                          InvocationTargetException e) {
@@ -61,5 +60,15 @@ public class BTCLInterpreter {
         }catch(IOException e){e.printStackTrace();}catch (ArrayIndexOutOfBoundsException e) {
             throw new BTCLSyntaxErrorException(e);
         }
+    }
+
+    public static void runningStatement(String data) {
+        if(data.matches("load .*")) {
+            if(LoaderRegister.getRegister().containsKey(data.substring(5))) {
+                PluginLoader.loadPlugin(LoaderRegister.get(data.split(" ")[1]), data.split(" ")[2]);
+            } else if(data.split(" ")[1].equals("plugin")) {
+                PluginLoader.loadPlugin(data.split(" ")[2]);
+            } else throw new BTCLSyntaxErrorException("そのようなソフトウェアローダはありません。");
+        }else throw new BTCLSyntaxErrorException("そのような構文はありません");
     }
 }

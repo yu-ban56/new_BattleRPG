@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Console">
+    <output-path>$PROJECT_DIR$/out/artifacts/Console</output-path>
+    <root id="archive" name="BattleRPGConsole.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/battlerpg.developer.console/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/classes/production/battlerpg/META-INF/logo.png" />
+      </element>
+      <element id="module-output" name="battlerpg.developer.console" />
+    </root>
+  </artifact>
+</component>
